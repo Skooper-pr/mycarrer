@@ -1,0 +1,504 @@
+:root {
+    --primary-color: #4F86F7; /* Blueberry */
+    --secondary-color: #222222; /* Black/Dark Grey for text */
+    --background-color: #FAFAFA; /* Soft Light Grey or White */
+    --button-text-color: #FFFFFF;
+    --hover-accent-color: #3D6FE2; /* Darker Blueberry */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background-color); /* Or #FFFFFF */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block; /* Ensures padding contributes to clickable area */
+}
+
+nav ul li a:hover {
+    color: var(--hover-accent-color);
+}
+
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    width: 100%;
+    min-height: 90vh; /* Or calc(100vh - navbar_height) if you know it */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 70px; /* Adjust based on actual navbar height */
+    background-color: var(--background-color); /* Optional: or a soft gradient */
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.profile-image-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder color */
+    /* border: 3px solid var(--primary-color); */ /* Alternative styling */
+    margin-bottom: 30px;
+    display: flex; /* To center text if any */
+    justify-content: center; /* To center text if any */
+    align-items: center; /* To center text if any */
+    font-size: 0.9em; /* For placeholder text */
+    color: var(--secondary-color);
+}
+
+.cta-button {
+    text-decoration: none;
+    display: inline-block; /* Allows padding, margins, etc. */
+    font-weight: 500;
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    padding: 15px 30px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.primary-cta:hover {
+    background-color: var(--hover-accent-color);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Slightly more pronounced shadow on hover */
+}
+
+/* About Section Styling */
+.about-section {
+    padding: 60px 0;
+    background-color: var(--background-color); /* Or an alternate light color */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Or use gap */
+    gap: 40px; /* Adjust as needed */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.about-image-column,
+.about-text-column {
+    flex-basis: 45%; /* Adjust for desired balance, ensure total < 100% if using space-between without gap */
+    flex-grow: 1; /* Allow columns to grow if space is available */
+    min-width: 300px; /* Prevent columns from becoming too narrow */
+}
+
+.about-image-placeholder {
+    width: 100%;
+    max-width: 400px; /* Control max image size */
+    height: auto; /* Maintain aspect ratio if using img tag */
+    min-height: 300px; /* For div placeholder */
+    background-color: #ddd;
+    border-radius: 8px;
+    display: flex; /* For centering placeholder text */
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: var(--secondary-color);
+    margin: 0 auto; /* Center block if it's smaller than column */
+}
+
+.about-text-column h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text-column p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* Responsive Adjustments for About Section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack columns */
+        gap: 30px; /* Adjust gap for stacked layout */
+    }
+
+    .about-image-column,
+    .about-text-column {
+        flex-basis: 100%; /* Make columns full width when stacked */
+    }
+
+    .about-text-column {
+        text-align: center; /* Optional: Center text when stacked */
+    }
+
+    .about-image-placeholder {
+        margin-bottom: 20px; /* Add some space below image when stacked */
+    }
+    .about-text-column h2 {
+        font-size: 1.8em; /* Slightly smaller title for mobile */
+    }
+}
+
+/* Services Section Styling */
+.services-section {
+    padding: 60px 20px;
+    background-color: #FFFFFF; /* White background for distinction */
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--background-color); /* Soft Light Grey from root */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: left; /* Content alignment within card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.service-icon-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-bottom: 20px; /* For text-align: left in card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em; /* For the [Icon] text or actual icon */
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+/* Portfolio Section Styling */
+.portfolio-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.portfolio-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.portfolio-filters {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Testimonials Section Styling */
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative; /* For potential absolute positioned nav buttons */
+}
+
+.testimonial-item {
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 20px; /* Will be handled by JS later, but good for initial view if not using active-slide logic */
+    display: none; /* Hide all items by default */
+}
+
+.testimonial-item.active-slide {
+    display: block; /* Show only the active slide */
+}
+
+.star-rating span {
+    color: #FFD700; /* Gold color for stars */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.testimonial-quote {
+    font-size: 1.1em;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.testimonial-client {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Optional: Carousel Navigation Button Styling (if added) */
+/*
+.carousel-prev, .carousel-next {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: var(--hover-accent-color);
+}
+*/
+
+/* CTA Section Styling */
+.cta-section {
+    padding: 60px 20px;
+    background-color: var(--primary-color); /* Blueberry */
+    color: var(--button-text-color); /* White text for elements inside */
+    text-align: center;
+}
+
+.cta-text { /* Or .cta-section h2 */
+    font-size: 2em;
+    font-weight: 700; /* Bold for Poppins */
+    margin-bottom: 30px;
+}
+
+.cta-section .cta-button { /* Specific to CTA section button */
+    background-color: var(--button-text-color); /* White */
+    color: var(--primary-color); /* Blueberry text */
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cta-section .cta-button:hover {
+    background-color: #f0f0f0; /* Slightly off-white for hover */
+    color: var(--hover-accent-color); /* Darker Blueberry text on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Contact Section Styling */
+.contact-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: -5px; /* Closer to input */
+}
+
+.contact-form input[type='text'],
+.contact-form input[type='email'],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type='text']:focus,
+.contact-form input[type='email']:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(79, 134, 247, 0.5);
+}
+
+/* Submit button styling - reuses .cta-button but ensures specific styles if needed */
+.contact-form .cta-button {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    /* Ensure it doesn't inherit text color from .cta-section .cta-button if it was white */
+}
+
+.contact-form .cta-button:hover {
+    background-color: var(--hover-accent-color);
+}
+
+.whatsapp-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    /* For centering if needed as a block */
+    /* display: block; */
+    /* text-align: center; */
+    /* margin: 20px auto 0 auto; */
+}
+
+.whatsapp-button:hover {
+    background-color: #1DAE54; /* Darker WhatsApp green */
+}
